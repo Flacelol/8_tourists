@@ -537,13 +537,19 @@
     aspect-ratio: 1;
     border-radius: 15px;
     overflow: hidden;
-    transition: all 0.3s ease;
+    transition: all 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    opacity: 1;
+    transform: scale(1);
 }
 
 .gallery-item:hover {
-    transform: translateY(-5px);
+    transform: translateY(-5px) scale(1);
     box-shadow: 0 15px 35px rgba(76, 175, 80, 0.2);
+}
+
+.gallery-item.filtering {
+    transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 .gallery-image {
@@ -791,42 +797,68 @@
 </style>
 
 <script>
-// Gallery Filters
-const galleryFilters = document.querySelectorAll('.filter-btn');
-const galleryItems = document.querySelectorAll('.gallery-item');
+// Ждем полной загрузки DOM
+document.addEventListener('DOMContentLoaded', function() {
+    // Gallery Filters
+    const galleryFilters = document.querySelectorAll('.filter-btn');
+    const galleryItems = document.querySelectorAll('.gallery-item');
 
-if (galleryFilters.length > 0) {
-    galleryFilters.forEach(filter => {
-        filter.addEventListener('click', () => {
-            const category = filter.getAttribute('data-filter');
-            
-            // Remove active class from all filters
-            galleryFilters.forEach(f => f.classList.remove('active'));
-            filter.classList.add('active');
-            
-            // Filter gallery items with fade effect
-            galleryItems.forEach(item => {
-                if (category === 'all' || item.getAttribute('data-category') === category) {
-                    item.style.opacity = '0';
-                    item.style.transform = 'scale(0.8)';
-                    setTimeout(() => {
+    if (galleryFilters.length > 0) {
+        galleryFilters.forEach(filter => {
+            filter.addEventListener('click', () => {
+                const category = filter.getAttribute('data-filter');
+                
+                // Remove active class from all filters
+                galleryFilters.forEach(f => f.classList.remove('active'));
+                filter.classList.add('active');
+                
+                // Filter gallery items with fade effect
+                galleryItems.forEach(item => {
+                    item.classList.add('filtering');
+                    
+                    if (category === 'all' || item.getAttribute('data-category') === category) {
+                        // Show item
                         item.style.display = 'block';
                         setTimeout(() => {
                             item.style.opacity = '1';
                             item.style.transform = 'scale(1)';
-                        }, 50);
-                    }, 150);
-                } else {
-                    item.style.opacity = '0';
-                    item.style.transform = 'scale(0.8)';
-                    setTimeout(() => {
-                        item.style.display = 'none';
-                    }, 300);
-                }
+                            item.classList.remove('filtering');
+                        }, 10);
+                    } else {
+                        // Hide item
+                        item.style.opacity = '0';
+                        item.style.transform = 'scale(0.8)';
+                        setTimeout(() => {
+                            item.style.display = 'none';
+                            item.classList.remove('filtering');
+                        }, 300);
+                    }
+                });
             });
         });
-    });
-}
+    }
+
+    // Close lightbox on background click
+    const lightbox = document.getElementById('lightbox');
+    if (lightbox) {
+        lightbox.addEventListener('click', (e) => {
+            if (e.target.id === 'lightbox') {
+                closeLightbox();
+            }
+        });
+    }
+
+    // Navigation toggle for mobile
+    const navToggle = document.getElementById('nav-toggle');
+    const navMenu = document.getElementById('nav-menu');
+
+    if (navToggle && navMenu) {
+        navToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            navToggle.classList.toggle('active');
+        });
+    }
+});
 
 // Lightbox functionality
 function openLightbox(button) {
@@ -877,13 +909,6 @@ function closeLightbox() {
     document.body.style.overflow = 'auto';
 }
 
-// Close lightbox on background click
-document.getElementById('lightbox').addEventListener('click', (e) => {
-    if (e.target.id === 'lightbox') {
-        closeLightbox();
-    }
-});
-
 // Keyboard navigation
 document.addEventListener('keydown', (e) => {
     const lightbox = document.getElementById('lightbox');
@@ -893,15 +918,4 @@ document.addEventListener('keydown', (e) => {
         }
     }
 });
-
-// Navigation toggle for mobile
-const navToggle = document.getElementById('nav-toggle');
-const navMenu = document.getElementById('nav-menu');
-
-if (navToggle && navMenu) {
-    navToggle.addEventListener('click', () => {
-        navMenu.classList.toggle('active');
-        navToggle.classList.toggle('active');
-    });
-}
 </script>
