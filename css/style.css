@@ -513,15 +513,15 @@ body {
 }
 
 .legend-color.available {
-    background: var(--primary-color);
+    background: #4CAF50; /* Зеленый для "Доступно для бронювання" */
 }
 
 .legend-color.booked {
-    background: #ffc107;
+    background: #ffc107; /* Желтый остается для "Заброньовано" */
 }
 
 .legend-color.traveling {
-    background: var(--secondary-color);
+    background: #2196F3; /* Голубой для "У подорожі" */
 }
 
 .trip-details {
