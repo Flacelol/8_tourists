@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Галерея - 8 Tourists</title>
+    <title>Подорожі - 8 Tourists</title>
+
     <meta name="description" content="Відкрийте красу України через нашу галерею: природа, архітектура, люди та незабутні моменти наших подорожей.">
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -14,6 +15,7 @@
     <nav class="navbar">
         <div class="nav-container">
             <div class="nav-logo">
+                <img src="images/8_tourists_logo.png" alt="8 Tourists Logo" class="logo-img">
                 <h2>8 Tourists</h2>
             </div>
             <ul class="nav-menu" id="nav-menu">
@@ -27,13 +29,17 @@
                     <a href="index.html#team" class="nav-link">Команда</a>
                 </li>
                 <li class="nav-item">
-                    <a href="gallery.html" class="nav-link active">Галерея</a>
+                    <a href="gallery.html" class="nav-link active">Подорожі</a>
+
                 </li>
                 <li class="nav-item">
                     <a href="index.html#calendar" class="nav-link">Календар</a>
                 </li>
                 <li class="nav-item">
                     <a href="index.html#booking" class="nav-link">Бронювання</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#reviews" class="nav-link">Відгуки</a>
                 </li>
                 <li class="nav-item">
                     <a href="index.html#contact" class="nav-link">Контакти</a>
@@ -48,316 +54,88 @@
     </nav>
 
     <!-- Page Header -->
-    <section class="page-header">
+    <section class="page-header" style="background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('images/castle8tourists.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat; min-height: 400px; padding: 120px 0 80px; text-align: center; color: white; position: relative;">
         <div class="container">
-            <h1 class="page-title">Галерея</h1>
-            <p class="page-subtitle">Відкрийте красу України через наші незабутні подорожі</p>
+            <h1 class="page-title">Наші поїздки</h1>
+            <p class="page-subtitle">Відкрийте найкрасивіші місця України разом з нами</p>
         </div>
     </section>
 
-    <!-- Gallery Filter -->
-    <section class="gallery-filter">
+    <!-- Trips Section -->
+    <section class="trips-section">
         <div class="container">
-            <div class="filter-buttons">
-                <button class="filter-btn active" data-filter="all">
-                    <i class="fas fa-th"></i>
-                    Усе
-                </button>
-                <button class="filter-btn" data-filter="nature">
-                    <i class="fas fa-mountain"></i>
-                    Природа
-                </button>
-                <button class="filter-btn" data-filter="architecture">
-                    <i class="fas fa-building"></i>
-                    Архітектура
-                </button>
-                <button class="filter-btn" data-filter="people">
-                    <i class="fas fa-users"></i>
-                    Люди
-                </button>
-                <button class="filter-btn" data-filter="events">
-                    <i class="fas fa-calendar-alt"></i>
-                    Події
-                </button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Gallery Grid -->
-    <section class="gallery-section">
-        <div class="container">
-            <div class="gallery-grid" id="galleryGrid">
-                <!-- Nature -->
-                <div class="gallery-item" data-category="nature">
-                    <div class="gallery-image">
-                        <div class="placeholder-image nature-placeholder">
-                            <i class="fas fa-mountain"></i>
-                        </div>
-                        <div class="gallery-overlay">
-                            <div class="gallery-info">
-                                <h3>Говерла</h3>
-                                <p>Найвища вершина України</p>
-                            </div>
-                            <button class="gallery-btn" onclick="openLightbox(this)">
-                                <i class="fas fa-expand"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="gallery-item" data-category="nature">
-                    <div class="gallery-image">
-                        <div class="placeholder-image nature-placeholder">
+            <div class="trips-grid">
+                <!-- Синевир -->
+                <div class="trip-item">
+                    <div class="trip-image">
+                        <div class="placeholder-image synevyr-placeholder">
                             <i class="fas fa-water"></i>
                         </div>
-                        <div class="gallery-overlay">
-                            <div class="gallery-info">
+                        <div class="trip-overlay">
+                            <div class="trip-info">
                                 <h3>Синевир</h3>
-                                <p>Перлина Карпат</p>
+                                <p>Перлина Карпат - найбільше високогірне озеро України</p>
                             </div>
-                            <button class="gallery-btn" onclick="openLightbox(this)">
-                                <i class="fas fa-expand"></i>
+                            <button class="trip-btn">
+                                <i class="fas fa-arrow-right"></i>
+                                Детальніше
                             </button>
                         </div>
                     </div>
                 </div>
 
-                <div class="gallery-item" data-category="nature">
-                    <div class="gallery-image">
-                        <div class="placeholder-image nature-placeholder">
-                            <i class="fas fa-tint"></i>
+                <!-- Петрос -->
+                <div class="trip-item">
+                    <div class="trip-image">
+                        <div class="placeholder-image petros-placeholder">
+                            <i class="fas fa-mountain"></i>
                         </div>
-                        <div class="gallery-overlay">
-                            <div class="gallery-info">
-                                <h3>Водоспад Шипіт</h3>
-                                <p>Найвищий водоспад України</p>
+                        <div class="trip-overlay">
+                            <div class="trip-info">
+                                <h3>Петрос</h3>
+                                <p>Одна з найкрасивіших вершин Карпат з неймовірними краєвидами</p>
                             </div>
-                            <button class="gallery-btn" onclick="openLightbox(this)">
-                                <i class="fas fa-expand"></i>
+                            <button class="trip-btn">
+                                <i class="fas fa-arrow-right"></i>
+                                Детальніше
                             </button>
                         </div>
                     </div>
                 </div>
 
-                <div class="gallery-item" data-category="nature">
-                    <div class="gallery-image">
-                        <div class="placeholder-image nature-placeholder">
-                            <i class="fas fa-tree"></i>
+                <!-- Говерла -->
+                <div class="trip-item">
+                    <div class="trip-image">
+                        <div class="placeholder-image hoverla-placeholder">
+                            <i class="fas fa-flag"></i>
                         </div>
-                        <div class="gallery-overlay">
-                            <div class="gallery-info">
-                                <h3>Карпатські ліси</h3>
-                                <p>Первозданна природа</p>
+                        <div class="trip-overlay">
+                            <div class="trip-info">
+                                <h3>Говерла</h3>
+                                <p>Найвища вершина України - мрія кожного мандрівника</p>
                             </div>
-                            <button class="gallery-btn" onclick="openLightbox(this)">
-                                <i class="fas fa-expand"></i>
+                            <button class="trip-btn">
+                                <i class="fas fa-arrow-right"></i>
+                                Детальніше
                             </button>
                         </div>
                     </div>
                 </div>
 
-                <!-- Architecture -->
-                <div class="gallery-item" data-category="architecture">
-                    <div class="gallery-image">
-                        <div class="placeholder-image architecture-placeholder">
-                            <i class="fas fa-chess-rook"></i>
-                        </div>
-                        <div class="gallery-overlay">
-                            <div class="gallery-info">
-                                <h3>Кам'янець-Подільський</h3>
-                                <p>Середньовічна фортеця</p>
-                            </div>
-                            <button class="gallery-btn" onclick="openLightbox(this)">
-                                <i class="fas fa-expand"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="gallery-item" data-category="architecture">
-                    <div class="gallery-image">
-                        <div class="placeholder-image architecture-placeholder">
+                <!-- Бакота -->
+                <div class="trip-item">
+                    <div class="trip-image">
+                        <div class="placeholder-image bakota-placeholder">
                             <i class="fas fa-church"></i>
                         </div>
-                        <div class="gallery-overlay">
-                            <div class="gallery-info">
-                                <h3>Дерев'яні церкви</h3>
-                                <p>Унікальна архітектура Карпат</p>
+                        <div class="trip-overlay">
+                            <div class="trip-info">
+                                <h3>Бакота</h3>
+                                <p>Стародавній монастир та мальовничі краєвиди Дністра</p>
                             </div>
-                            <button class="gallery-btn" onclick="openLightbox(this)">
-                                <i class="fas fa-expand"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="gallery-item" data-category="architecture">
-                    <div class="gallery-image">
-                        <div class="placeholder-image architecture-placeholder">
-                            <i class="fas fa-home"></i>
-                        </div>
-                        <div class="gallery-overlay">
-                            <div class="gallery-info">
-                                <h3>Гуцульські хати</h3>
-                                <p>Традиційна архітектура</p>
-                            </div>
-                            <button class="gallery-btn" onclick="openLightbox(this)">
-                                <i class="fas fa-expand"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="gallery-item" data-category="architecture">
-                    <div class="gallery-image">
-                        <div class="placeholder-image architecture-placeholder">
-                            <i class="fas fa-university"></i>
-                        </div>
-                        <div class="gallery-overlay">
-                            <div class="gallery-info">
-                                <h3>Дубенський замок</h3>
-                                <p>Історична пам'ятка Волині</p>
-                            </div>
-                            <button class="gallery-btn" onclick="openLightbox(this)">
-                                <i class="fas fa-expand"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- People -->
-                <div class="gallery-item" data-category="people">
-                    <div class="gallery-image">
-                        <div class="placeholder-image people-placeholder">
-                            <i class="fas fa-hiking"></i>
-                        </div>
-                        <div class="gallery-overlay">
-                            <div class="gallery-info">
-                                <h3>Наша команда</h3>
-                                <p>Досвідчені гіди</p>
-                            </div>
-                            <button class="gallery-btn" onclick="openLightbox(this)">
-                                <i class="fas fa-expand"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="gallery-item" data-category="people">
-                    <div class="gallery-image">
-                        <div class="placeholder-image people-placeholder">
-                            <i class="fas fa-users"></i>
-                        </div>
-                        <div class="gallery-overlay">
-                            <div class="gallery-info">
-                                <h3>Щасливі туристи</h3>
-                                <p>Незабутні емоції</p>
-                            </div>
-                            <button class="gallery-btn" onclick="openLightbox(this)">
-                                <i class="fas fa-expand"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="gallery-item" data-category="people">
-                    <div class="gallery-image">
-                        <div class="placeholder-image people-placeholder">
-                            <i class="fas fa-handshake"></i>
-                        </div>
-                        <div class="gallery-overlay">
-                            <div class="gallery-info">
-                                <h3>Місцеві жителі</h3>
-                                <p>Гостинність Карпат</p>
-                            </div>
-                            <button class="gallery-btn" onclick="openLightbox(this)">
-                                <i class="fas fa-expand"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="gallery-item" data-category="people">
-                    <div class="gallery-image">
-                        <div class="placeholder-image people-placeholder">
-                            <i class="fas fa-camera"></i>
-                        </div>
-                        <div class="gallery-overlay">
-                            <div class="gallery-info">
-                                <h3>Фотосесії</h3>
-                                <p>Професійні знімки</p>
-                            </div>
-                            <button class="gallery-btn" onclick="openLightbox(this)">
-                                <i class="fas fa-expand"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Events -->
-                <div class="gallery-item" data-category="events">
-                    <div class="gallery-image">
-                        <div class="placeholder-image events-placeholder">
-                            <i class="fas fa-fire"></i>
-                        </div>
-                        <div class="gallery-overlay">
-                            <div class="gallery-info">
-                                <h3>Вечірні вогнища</h3>
-                                <p>Романтичні вечори</p>
-                            </div>
-                            <button class="gallery-btn" onclick="openLightbox(this)">
-                                <i class="fas fa-expand"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="gallery-item" data-category="events">
-                    <div class="gallery-image">
-                        <div class="placeholder-image events-placeholder">
-                            <i class="fas fa-music"></i>
-                        </div>
-                        <div class="gallery-overlay">
-                            <div class="gallery-info">
-                                <h3>Фольклорні вечори</h3>
-                                <p>Традиційна музика</p>
-                            </div>
-                            <button class="gallery-btn" onclick="openLightbox(this)">
-                                <i class="fas fa-expand"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="gallery-item" data-category="events">
-                    <div class="gallery-image">
-                        <div class="placeholder-image events-placeholder">
-                            <i class="fas fa-utensils"></i>
-                        </div>
-                        <div class="gallery-overlay">
-                            <div class="gallery-info">
-                                <h3>Гуцульська кухня</h3>
-                                <p>Автентичні страви</p>
-                            </div>
-                            <button class="gallery-btn" onclick="openLightbox(this)">
-                                <i class="fas fa-expand"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="gallery-item" data-category="events">
-                    <div class="gallery-image">
-                        <div class="placeholder-image events-placeholder">
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <div class="gallery-overlay">
-                            <div class="gallery-info">
-                                <h3>Спостереження за зірками</h3>
-                                <p>Чисте небо Карпат</p>
-                            </div>
-                            <button class="gallery-btn" onclick="openLightbox(this)">
-                                <i class="fas fa-expand"></i>
+                            <button class="trip-btn">
+                                <i class="fas fa-arrow-right"></i>
+                                Детальніше
                             </button>
                         </div>
                     </div>
@@ -365,6 +143,8 @@
             </div>
         </div>
     </section>
+
+    
 
     <!-- Instagram CTA -->
     <section class="instagram-cta">
@@ -445,7 +225,7 @@
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; 2024 8 Tourists. Всі права захищені.</p>
+                <p>&copy; 2025 8 Tourists. Всі права захищені.</p>
             </div>
         </div>
     </footer>

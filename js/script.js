@@ -768,6 +768,28 @@ function removeTrip(date) {
     }
 }
 
+// FAQ functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const faqItems = document.querySelectorAll('.faq-item');
+    
+    faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        
+        question.addEventListener('click', () => {
+            const isActive = item.classList.contains('active');
+            
+            // Закриваємо всі інші FAQ елементи
+            faqItems.forEach(otherItem => {
+                otherItem.classList.remove('active');
+            });
+            
+            // Відкриваємо поточний елемент, якщо він не був активним
+            if (!isActive) {
+                item.classList.add('active');
+            }
+        });
+    });
+});
 // Додати нову доступну подорож
 addTrip('2025-08-15', 'available', 'Львів', 'Екскурсія по історичному центру Львова');
 

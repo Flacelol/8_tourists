@@ -40,10 +40,23 @@ body {
     height: 70px;
 }
 
+.nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.logo-img {
+    height: 90px;
+    width: auto;
+    border-radius: 5px;
+}
+
 .nav-logo h2 {
     color: #2d5a27;
     font-weight: 700;
     font-size: 1.8rem;
+    margin: 0;
 }
 
 .nav-menu {
@@ -239,6 +252,15 @@ body {
     width: 100%;
     border-radius: 15px;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    filter: contrast(0.95) brightness(1.02) saturate(1.05);
+    transition: all 0.3s ease;
+}
+
+.about-image img:hover {
+    filter: contrast(1.0) brightness(1.05) saturate(1.1);
+    transform: scale(1.02);
 }
 
 /* Team Section */
@@ -885,5 +907,425 @@ body {
     .booking-form,
     .booking-info {
         padding: 2rem;
+    }
+}
+
+/* Reviews Section */
+.reviews {
+    padding: 100px 0;
+    background: white;
+}
+
+.reviews-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-bottom: 4rem;
+}
+
+.review-card {
+    background: #f8f9fa;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.review-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.review-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+}
+
+.reviewer-info h4 {
+    color: #2d5a27;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.rating {
+    display: flex;
+    gap: 0.2rem;
+}
+
+.rating i {
+    color: #ffc107;
+    font-size: 0.9rem;
+}
+
+.review-date {
+    color: #888;
+    font-size: 0.9rem;
+}
+
+.review-text {
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    font-style: italic;
+}
+
+.review-trip {
+    color: #2d5a27;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.reviews-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    text-align: center;
+    padding: 2rem 0;
+    border-top: 1px solid #e0e0e0;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #2d5a27;
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    color: #666;
+    font-weight: 500;
+}
+
+/* Responsive Design for Reviews */
+@media (max-width: 768px) {
+    .reviews-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .review-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+    
+    .reviews-stats {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .stat-number {
+        font-size: 2rem;
+    }
+}
+
+.trip-date {
+    text-align: center;
+    background: #2d5a27;
+    color: white;
+    padding: 1rem;
+    border-radius: 10px;
+    min-width: 80px;
+}
+
+.trip-date .day {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.trip-date .month {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.trip-info h3 {
+    color: #2d5a27;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.trip-info p {
+    color: #666;
+    margin-bottom: 0.3rem;
+}
+
+.trip-info i {
+    color: #2d5a27;
+    margin-right: 0.5rem;
+    width: 15px;
+}
+
+.trip-price {
+    text-align: center;
+}
+
+.trip-price span {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #2d5a27;
+}
+
+/* Trips Section */
+.trips-section {
+    padding: 60px 0;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+.trips-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-top: 40px;
+}
+
+.trip-item {
+    position: relative;
+    aspect-ratio: 4/3;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.trip-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(76, 175, 80, 0.2);
+}
+
+.trip-image {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.placeholder-image {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+    color: rgba(255, 255, 255, 0.9);
+    position: relative;
+}
+
+.synevyr-placeholder {
+    background: linear-gradient(135deg, #2196F3, #1976D2);
+}
+
+.petros-placeholder {
+    background: linear-gradient(135deg, #4CAF50, #2E7D32);
+}
+
+.hoverla-placeholder {
+    background: linear-gradient(135deg, #FF9800, #F57C00);
+}
+
+.bakota-placeholder {
+    background: linear-gradient(135deg, #9C27B0, #7B1FA2);
+}
+
+.trip-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+    color: white;
+    padding: 2rem;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.trip-item:hover .trip-overlay {
+    transform: translateY(0);
+}
+
+.trip-info h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.trip-info p {
+    font-size: 0.9rem;
+    color: #e0e0e0;
+    margin: 0;
+    max-width: 250px;
+}
+
+.trip-btn {
+    background: #4CAF50;
+    border: none;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
+}
+
+.trip-btn:hover {
+    background: #45a049;
+    transform: translateX(5px);
+}
+
+.trip-btn i {
+    font-size: 0.8rem;
+}
+
+/* Page Header */
+.page-header {
+    padding: 120px 0 80px;
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+                url('images/castle8tourists.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    text-align: center;
+    color: white;
+    position: relative;
+    min-height: 400px;
+}
+
+.page-title {
+    font-size: 3rem;
+    font-weight: 700;
+
+    /* text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); */
+}
+
+.page-subtitle {
+    font-size: 1.3rem;
+    margin-bottom: 0;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Responsive Design for Page Header */
+@media (max-width: 768px) {
+    .page-header {
+        padding: 100px 0 60px;
+        background-attachment: scroll;
+        min-height: 300px;
+    }
+    
+    .page-title {
+        font-size: 2.5rem;
+    }
+    
+    .page-subtitle {
+        font-size: 1.1rem;
+    }
+}
+
+/* FAQ Section */
+.faq {
+    padding: 100px 0;
+    background: #f8f9fa;
+}
+
+.faq-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.faq-item {
+    background: white;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: box-shadow 0.3s ease;
+}
+
+.faq-item:hover {
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+}
+
+.faq-question {
+    padding: 1.5rem 2rem;
+    background: white;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.3s ease;
+}
+
+.faq-question:hover {
+    background: #f8f9fa;
+}
+
+.faq-question h3 {
+    color: #2d5a27;
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.faq-question i {
+    color: #2d5a27;
+    transition: transform 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.faq-item.active .faq-question i {
+    transform: rotate(180deg);
+}
+
+.faq-answer {
+    padding: 0 2rem;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+}
+
+.faq-item.active .faq-answer {
+    padding: 0 2rem 1.5rem;
+    max-height: 200px;
+}
+
+.faq-answer p {
+    color: #555;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Responsive FAQ */
+@media (max-width: 768px) {
+    .faq {
+        padding: 60px 0;
+    }
+    
+    .faq-question {
+        padding: 1rem 1.5rem;
+    }
+    
+    .faq-question h3 {
+        font-size: 1rem;
+    }
+    
+    .faq-item.active .faq-answer {
+        padding: 0 1.5rem 1rem;
     }
 }
