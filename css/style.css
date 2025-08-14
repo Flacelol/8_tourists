@@ -1302,13 +1302,22 @@ body {
 
 .faq-item.active .faq-answer {
     padding: 0 2rem 1.5rem;
-    max-height: 200px;
+    max-height: none;
+    overflow: visible;
 }
+
 
 .faq-answer p {
     color: #555;
     line-height: 1.6;
     margin: 0;
+}
+
+.faq-answer {
+    padding: 0 2rem;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
 }
 
 /* Responsive FAQ */
@@ -1327,5 +1336,7 @@ body {
     
     .faq-item.active .faq-answer {
         padding: 0 1.5rem 1rem;
+        max-height: none;
+        overflow: visible;
     }
 }
