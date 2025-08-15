@@ -791,7 +791,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// Filter functionality
+// Gallery Filters - исправленная версия по образцу milano-35013
 document.addEventListener('DOMContentLoaded', function() {
     const filterBtns = document.querySelectorAll('.filter-btn');
     const tripItems = document.querySelectorAll('.trip-item');
@@ -804,38 +804,29 @@ document.addEventListener('DOMContentLoaded', function() {
             btn.classList.add('active');
 
             const filterValue = btn.getAttribute('data-filter');
-            let visibleItems = [];
 
-            // Определяем какие элементы должны быть видимы
+            // Filter gallery items like in milano-35013
             tripItems.forEach(item => {
-                if (filterValue === 'all') {
-                    visibleItems.push(item);
+                const itemCategory = item.getAttribute('data-category');
+                
+                if (filterValue === 'all' || itemCategory === filterValue) {
+                    item.style.display = 'block';
+                    setTimeout(() => {
+                        item.style.opacity = '1';
+                        item.style.transform = 'scale(1)';
+                    }, 100);
                 } else {
-                    const itemCategory = item.getAttribute('data-category');
-                    if (itemCategory === filterValue) {
-                        visibleItems.push(item);
-                    }
+                    item.style.opacity = '0';
+                    item.style.transform = 'scale(0.8)';
+                    setTimeout(() => {
+                        item.style.display = 'none';
+                    }, 300);
                 }
-            });
-
-            // Сначала скрываем все элементы
-            tripItems.forEach(item => {
-                item.classList.add('hidden');
-            });
-
-            // Показываем нужные элементы с анимацией поочередно
-            visibleItems.forEach((item, index) => {
-                setTimeout(() => {
-                    item.classList.remove('hidden');
-                    // Перезапускаем анимацию
-                    item.style.animation = 'none';
-                    item.offsetHeight; // Trigger reflow
-                    item.style.animation = null;
-                }, index * 100);
             });
         });
     });
 });
+
 // Додати нову доступну подорож
 addTrip('2025-08-15', 'available', 'Львів', 'Екскурсія по історичному центру Львова');
 

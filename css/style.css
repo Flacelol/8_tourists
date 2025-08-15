@@ -1082,9 +1082,12 @@ body {
 
 .trips-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
     gap: 2rem;
     margin-top: 40px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .trip-item {
@@ -1397,48 +1400,7 @@ body {
 
 /* Trip items animation */
 .trip-item {
-    position: relative;
-    aspect-ratio: 4/3;
-    border-radius: 15px;
-    overflow: hidden;
     transition: all 0.3s ease;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     opacity: 1;
     transform: scale(1);
-}
-
-.trip-item.hidden {
-    display: none;
-}
-
-/* Анимация появления для видимых элементов */
-.trip-item:not(.hidden) {
-    animation: slideInUp 0.5s ease forwards;
-}
-
-@keyframes slideInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px) scale(0.9);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-    }
-}
-
-/* Анимация для показа элементов после фильтрации */
-.trip-item:not(.hidden) {
-    animation: showItem 0.5s ease forwards;
-}
-
-@keyframes showItem {
-    from {
-        opacity: 0;
-        transform: translateY(20px) scale(0.95);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-    }
 }
