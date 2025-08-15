@@ -790,6 +790,52 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+// Filter functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const tripItems = document.querySelectorAll('.trip-item');
+
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            // Remove active class from all buttons
+            filterBtns.forEach(b => b.classList.remove('active'));
+            // Add active class to clicked button
+            btn.classList.add('active');
+
+            const filterValue = btn.getAttribute('data-filter');
+            let visibleItems = [];
+
+            // Определяем какие элементы должны быть видимы
+            tripItems.forEach(item => {
+                if (filterValue === 'all') {
+                    visibleItems.push(item);
+                } else {
+                    const itemCategory = item.getAttribute('data-category');
+                    if (itemCategory === filterValue) {
+                        visibleItems.push(item);
+                    }
+                }
+            });
+
+            // Сначала скрываем все элементы
+            tripItems.forEach(item => {
+                item.classList.add('hidden');
+            });
+
+            // Показываем нужные элементы с анимацией поочередно
+            visibleItems.forEach((item, index) => {
+                setTimeout(() => {
+                    item.classList.remove('hidden');
+                    // Перезапускаем анимацию
+                    item.style.animation = 'none';
+                    item.offsetHeight; // Trigger reflow
+                    item.style.animation = null;
+                }, index * 100);
+            });
+        });
+    });
+});
 // Додати нову доступну подорож
 addTrip('2025-08-15', 'available', 'Львів', 'Екскурсія по історичному центру Львова');
 

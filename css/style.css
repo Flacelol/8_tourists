@@ -1146,12 +1146,22 @@ body {
     transform: translateY(100%);
     transition: transform 0.3s ease;
     display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
 
 .trip-item:hover .trip-overlay {
     transform: translateY(0);
+}
+
+.trip-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 1rem;
 }
 
 .trip-info h3 {
@@ -1165,6 +1175,7 @@ body {
     color: #e0e0e0;
     margin: 0;
     max-width: 250px;
+    display: block;
 }
 
 .trip-btn {
@@ -1185,7 +1196,7 @@ body {
 
 .trip-btn:hover {
     background: #45a049;
-    transform: translateX(5px);
+    transform: translateY(-2px);
 }
 
 .trip-btn i {
@@ -1338,5 +1349,96 @@ body {
         padding: 0 1.5rem 1rem;
         max-height: none;
         overflow: visible;
+    }
+}
+
+/* Filter Panel */
+.filter-panel {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    background: white;
+    border: 2px solid #e0e0e0;
+    color: #666;
+    padding: 12px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
+}
+
+.filter-btn:hover {
+    border-color: #2d5a27;
+    color: #2d5a27;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(45, 90, 39, 0.2);
+}
+
+.filter-btn.active {
+    background: #2d5a27;
+    border-color: #2d5a27;
+    color: white;
+    box-shadow: 0 5px 15px rgba(45, 90, 39, 0.3);
+}
+
+.filter-btn i {
+    font-size: 0.8rem;
+}
+
+/* Trip items animation */
+.trip-item {
+    position: relative;
+    aspect-ratio: 4/3;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    opacity: 1;
+    transform: scale(1);
+}
+
+.trip-item.hidden {
+    display: none;
+}
+
+/* Анимация появления для видимых элементов */
+.trip-item:not(.hidden) {
+    animation: slideInUp 0.5s ease forwards;
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Анимация для показа элементов после фильтрации */
+.trip-item:not(.hidden) {
+    animation: showItem 0.5s ease forwards;
+}
+
+@keyframes showItem {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
     }
 }

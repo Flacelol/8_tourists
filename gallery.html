@@ -64,17 +64,40 @@
     <!-- Trips Section -->
     <section class="trips-section">
         <div class="container">
+            <!-- Filter Panel -->
+            <div class="filter-panel">
+                <button class="filter-btn active" data-filter="all">
+                    <i class="fas fa-globe"></i>
+                    Всі
+                </button>
+                <button class="filter-btn" data-filter="castles">
+                    <i class="fas fa-chess-rook"></i>
+                    Замки
+                </button>
+                <button class="filter-btn" data-filter="lakes">
+                    <i class="fas fa-water"></i>
+                    Озера
+                </button>
+                <button class="filter-btn" data-filter="mountains">
+                    <i class="fas fa-mountain"></i>
+                    Гори
+                </button>
+                <button class="filter-btn" data-filter="markets">
+                    <i class="fas fa-store"></i>
+                    Базари
+                </button>
+            </div>
+            
             <div class="trips-grid">
                 <!-- Синевир -->
-                <div class="trip-item">
+                <div class="trip-item" data-category="lakes">
                     <div class="trip-image">
                         <div class="placeholder-image synevyr-placeholder">
                             <i class="fas fa-water"></i>
                         </div>
                         <div class="trip-overlay">
                             <div class="trip-info">
-                                <h3>Синевир</h3>
-                                <p>Перлина Карпат - найбільше високогірне озеро України</p>
+                                <h3>озеро Синевир</h3>
                             </div>
                             <button class="trip-btn">
                                 <i class="fas fa-arrow-right"></i>
@@ -84,16 +107,50 @@
                     </div>
                 </div>
 
-                <!-- Петрос -->
-                <div class="trip-item">
+                <div class="trip-item" data-category="lakes">
+                    <div class="trip-image">
+                        <div class="placeholder-image synevyr-placeholder">
+                            <i class="fas fa-water"></i>
+                        </div>
+                        <div class="trip-overlay">
+                            <div class="trip-info">
+                                <h3>озеро Синевир</h3>
+                                <p>+ водоспад Шипіт</p>
+                            </div>
+                            <button class="trip-btn">
+                                <i class="fas fa-arrow-right"></i>
+                                Детальніше
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Тустань -->
+                <div class="trip-item" data-category="castles">
                     <div class="trip-image">
                         <div class="placeholder-image petros-placeholder">
                             <i class="fas fa-mountain"></i>
                         </div>
                         <div class="trip-overlay">
                             <div class="trip-info">
-                                <h3>Петрос</h3>
-                                <p>Одна з найкрасивіших вершин Карпат з неймовірними краєвидами</p>
+                                <h3>Тустань</h3>
+                            </div>
+                            <button class="trip-btn">
+                                <i class="fas fa-arrow-right"></i>
+                                Детальніше
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="trip-item" data-category="mountains">
+                    <div class="trip-image">
+                        <div class="placeholder-image petros-placeholder">
+                            <i class="fas fa-mountain"></i>
+                        </div>
+                        <div class="trip-overlay">
+                            <div class="trip-info">
+                                <h3>Довбуша</h3>
                             </div>
                             <button class="trip-btn">
                                 <i class="fas fa-arrow-right"></i>
@@ -104,7 +161,7 @@
                 </div>
 
                 <!-- Говерла -->
-                <div class="trip-item">
+                <div class="trip-item" data-category="mountains">
                     <div class="trip-image">
                         <div class="placeholder-image hoverla-placeholder">
                             <i class="fas fa-flag"></i>
@@ -123,7 +180,25 @@
                 </div>
 
                 <!-- Бакота -->
-                <div class="trip-item">
+                <div class="trip-item" data-category="castles">
+                    <div class="trip-image">
+                        <div class="placeholder-image bakota-placeholder">
+                            <i class="fas fa-church"></i>
+                        </div>
+                        <div class="trip-overlay">
+                            <div class="trip-info">
+                                <h3>Бакота</h3>
+                                <p>Стародавній монастир та мальовничі краєвиди Дністра</p>
+                            </div>
+                            <button class="trip-btn">
+                                <i class="fas fa-arrow-right"></i>
+                                Детальніше
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="trip-item" data-category="castles">
                     <div class="trip-image">
                         <div class="placeholder-image bakota-placeholder">
                             <i class="fas fa-church"></i>
