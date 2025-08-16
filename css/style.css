@@ -628,14 +628,15 @@ body {
 }
 
 .trip-info h3 {
-    color: #2d5a27;
+    color: white;
     margin-bottom: 0.5rem;
     font-weight: 600;
 }
 
-.trip-info p {
-    color: #666;
-    margin-bottom: 0.3rem;
+.trip-info i {
+    color: white;
+    margin-right: 0.5rem;
+    width: 15px;
 }
 
 .trip-info i {
@@ -1048,14 +1049,15 @@ body {
 }
 
 .trip-info h3 {
-    color: #2d5a27;
+    color: white;
     margin-bottom: 0.5rem;
     font-weight: 600;
 }
 
-.trip-info p {
-    color: #666;
-    margin-bottom: 0.3rem;
+.trip-info i {
+    color: white;
+    margin-right: 0.5rem;
+    width: 15px;
 }
 
 .trip-info i {
